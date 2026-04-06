@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RedKartel Vape | Одноразки, жидкости и устройства</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070707;
+            color: #ededed;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 7, 7, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 14px 0;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 20%, #e63946 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #e63946;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.25s ease;
+            background: rgba(255, 255, 255, 0.04);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .cart-icon:hover {
+            background: rgba(230, 57, 70, 0.2);
+            transform: scale(1.02);
+            border-color: #e63946;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #e63946;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            box-shadow: 0 0 6px rgba(230,57,70,0.6);
+        }
+
+        .hero {
+            padding: 70px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at 70% 20%, #1a0a0c, #070707);
+            border-bottom: 1px solid rgba(230,57,70,0.15);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff, #e63946);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #bcbcbc;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin: 50px 0 80px;
+        }
+
+        .product-card {
+            background: #0f0f0f;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(230, 57, 70, 0.4);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
+            background: #141414;
+        }
+
+        .card-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            background-color: #1a1a1a;
+        }
+
+        .product-info {
+            padding: 20px 20px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 18px;
+            line-height: 1.45;
+            min-height: 52px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .price {
+            font-size: 26px;
+            font-weight: 800;
+            color: #e63946;
+        }
+
+        .price small {
+            font-size: 14px;
+            font-weight: 500;
+            color: #aaa;
+        }
+
+        .add-to-cart {
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.4);
+            color: #e63946;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .add-to-cart:hover {
+            background: #e63946;
+            color: white;
+            border-color: #e63946;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -480px;
+            width: 100%;
+            max-width: 460px;
+            height: 100vh;
+            background: #0a0a0a;
+            border-left: 1px solid rgba(230, 57, 70, 0.3);
+            z-index: 1000;
+            transition: right 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -8px 0 35px rgba(0,0,0,0.8);
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 22px 24px;
+            border-bottom: 1px solid #1e1e1e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0c0c0c;
+        }
+
+        .cart-header h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #e63946;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: #aaa;
+            transition: 0.2s;
+        }
+
+        .close-cart:hover {
+            color: #e63946;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .cart-item-price {
+            font-size: 13px;
+            color: #e63946;
+            font-weight: 600;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-item-controls button {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.15s;
+        }
+
+        .cart-item-controls button:hover {
+            background: #e63946;
+            border-color: #e63946;
+        }
+
+        .cart-total {
+            padding: 20px 24px;
+            border-top: 1px solid #1e1e1e;
+            font-size: 22px;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            background: #0c0c0c;
+        }
+
+        .checkout-btn {
+            background: #e63946;
+            margin: 0 24px 28px;
+            padding: 16px;
+            border: none;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+
+        .checkout-btn:hover {
+            background: #c1121f;
+            transform: scale(1.01);
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: #777;
+            padding: 50px 0;
+            font-weight: 500;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1c1c24;
+            backdrop-filter: blur(12px);
+            padding: 12px 24px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 600;
+            z-index: 1100;
+            opacity: 0;
+            transition: opacity 0.25s;
+            pointer-events: none;
+            border-left: 4px solid #e63946;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0 40px;
+            border-top: 1px solid rgba(230, 57, 70, 0.15);
+            color: #777;
+            font-size: 14px;
+            background: #050505;
+        }
+
+        .footer-links {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #e63946;
+            text-decoration: none;
+            transition: 0.2s;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b7c;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 36px; }
+            .products-grid { gap: 20px; }
+            .container { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="logo">RedKartel <span>VAPE</span></div>
+        <div class="cart-icon" id="cartIcon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="container">
+        <h1>RedKartel Vape</h1>
+        <p>Одноразовые электронные сигареты, жидкости и устройства для парения. Только оригинал, моментальная отправка. Огромный выбор вкусов — уточняйте у продавца.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<footer>
+    <div class="container">
+        <p style="font-weight: 700; letter-spacing: 1px;">REDKARTEL VAPE</p>
+        <div class="footer-links">
+            <a href="https://t.me/ED4M0500" target="_blank"><i class="fab fa-telegram"></i> Продавец: @ED4M0500</a>
+            <a href="https://t.me/RedKartelVape" target="_blank"><i class="fab fa-telegram"></i> Telegram канал</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 12px;">По вопросам наличия, ассортимента вкусов и новинок — пишите в Telegram. Работаем честно и быстро.</p>
+    </div>
+</footer>
+
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>🛒 Корзина</h3>
+        <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+        <div class="empty-cart">Корзина пуста</div>
+    </div>
+    <div class="cart-total" id="cartTotal">Итого: 0 ₽</div>
+    <button class="checkout-btn" id="checkoutBtn"><i class="fab fa-telegram"></i> Оформить заказ</button>
+</div>
+
+<div class="notification" id="notification">Товар добавлен</div>
+
+<script>
+    (function() {
+        const products = [
+            { id: 1, name: "Rifbar 15k тяг", price: 800, category: "disposable", desc: "До 15000 затяжек, огромный выбор вкусов.", img: "https://i.ibb.co/v4k4NRZw/image.png" },
+            { id: 2, name: "RabBeats 10k", price: 500, category: "disposable", desc: "До 10000 затяжек, широкий ассортимент вкусов.", img: "https://i.ibb.co/KpZScSPD/image.png" },
+            { id: 3, name: "HQD 7k", price: 400, category: "disposable", desc: "До 7000 затяжек, множество вкусов.", img: "https://static.insales-cdn.com/r/G1pcWbhYV8M/rs:fit:400:400:1/plain/images/products/1/7213/840588333/large_HQD_TITAN_7000_%D0%92%D0%BA%D1%83%D1%81%D1%8B_%D0%B2_%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5.png@png" },
+            { id: 4, name: "EASE 8k", price: 400, category: "disposable", desc: "До 8000 затяжек, большой выбор вкусов.", img: "https://vapeobservation.com/wp-content/uploads/2024/01/Snowwolf-Ease-8000-Disposable-Vape-8000-Puffs-7-1024x1024.png" },
+            { id: 5, name: "Waka", price: 1100, category: "disposable", desc: "Высокое качество, широкий выбор вкусов.", img: "" },
+            { id: 6, name: "Puffmi Flora", price: 1300, category: "disposable", desc: "До 25000 затяжек, множество вкусов.", img: "https://static.insales-cdn.com/images/products/1/2193/2398365841/PUFFMI_FLORA_25000_-_%D0%A7%D0%95%D0%A0%D0%9D%D0%98%D0%9A%D0%90_%D0%98_%D0%9C%D0%90%D0%9B%D0%98%D0%9D%D0%90.webp" },
+            { id: 7, name: "Puffmi 40k", price: 1200, category: "disposable", desc: "До 40000 затяжек, огромный выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr73y7JrTXaHwTmW4o8LjcT_xqNNxZQVMTIg&s" },
+            { id: 8, name: "ELFBAR Ice King", price: 1000, category: "disposable", desc: "Регулировка уровня льда, множество вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf3PrdvBQ9-HN2_lYMMhy4m1xn1tK9iN1Gpw&s" },
+            { id: 9, name: "ELFBAR 23k", price: 1000, category: "disposable", desc: "До 23000 затяжек, широкий выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRELJ_D-vqzLIA91qMNJBNbZontHHE_vdSM9g&s" },
+            { id: 10, name: "HIFANCY 30k", price: 800, category: "disposable", desc: "До 30000 затяжек, огромный выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8SIlE_qTY-seFMOxevMlEKsB7Jn9BbGQFiA&s" },
+            { id: 11, name: "Puffmi 20k", price: 900, category: "disposable", desc: "До 20000 затяжек, множество вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7XYQJnukACDESsIv7g9k2pKIE6BGW6bYibg&s" },
+            { id: 12, name: "Lost Mary 10k", price: 900, category: "disposable", desc: "До 10000 затяжек, широкий выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvIXWPkgFn_DmFTD7IIwC3x9EUpcZX0Zz0sQ&s" },
+            { id: 13, name: "Inflave Power 12k", price: 600, category: "disposable", desc: "До 12000 затяжек, множество вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJn0bLXKR0JGUtooWlmBn27LEBGNn6rMFm4Q&s" },
+            { id: 14, name: "Oxbar 30k", price: 1000, category: "disposable", desc: "До 30000 затяжек, огромный выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqQGNlrtG58Kegq-itOZspL6K2i1L0W5JgJQ&s" },
+            { id: 15, name: "Aerovibe 20k", price: 900, category: "disposable", desc: "До 20000 затяжек, широкий выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKiq0XEa7h_ulELdZK38NE_w6jL42Yxjhnqw&s" },
+            { id: 16, name: "Manta AIO Plus", price: 1800, category: "pod", desc: "Мощное POD-устройство, совместимо с различными жидкостями.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsra5t4S66xlaj3PCqFXuPay1RkkwFRpGOLQ&s" },
+            { id: 17, name: "Жижа и точка", price: 300, category: "liquid", desc: "Качественная жидкость для электронных сигарет.", img: "" },
+            { id: 18, name: "Hasky", price: 600, category: "disposable", desc: "Надежная одноразка, большой выбор вкусов.", img: "" },
+            { id: 19, name: "Altitude 5k", price: 300, category: "disposable", desc: "До 5000 затяжек, отличный вкус.", img: "" },
+            { id: 20, name: "Podonky 10k", price: 1000, category: "disposable", desc: "До 10000 затяжек, множество вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT39ed5zBShTbv5SShnQe6EfkGi_MmOiG2izg&s" },
+            { id: 21, name: "OnlyFORCE 12k", price: 500, category: "disposable", desc: "До 12000 затяжек, широкий выбор вкусов.", img: "https://i.ibb.co/JjGy43rp/image.png" },
+            { id: 22, name: "Elux 12k", price: 450, category: "disposable", desc: "До 12000 затяжек, огромный выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrw4XyHO7vIfasFGRWIljwIJU3lJ_duq_qyg&s" },
+            { id: 23, name: "Chilax Shake 25k", price: 800, category: "disposable", desc: "До 25000 затяжек, множество вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt67u5ERzgZs6zSRiZxY6Da7u4OsxYuhqbFw&s" },
+            { id: 24, name: "Waka 10k", price: 1000, category: "disposable", desc: "До 10000 затяжек, широкий выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwe-UJGEa6GuiC8zb42AWJOG0pcwL-MpXeig&s" },
+            { id: 25, name: "Geek Bar 911 18k", price: 1000, category: "disposable", desc: "До 18000 затяжек, огромный выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnO7NeQ8qPF0_-V1s1GLRV-P1TE6vaZZ7L3A&s" },
+            { id: 26, name: "MKG X ULTRA 30k", price: 1000, category: "disposable", desc: "До 30000 затяжек, множество вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9kK2kNwEyf_FtBeDdxGV7GB69-iBZrYTzzg&s" },
+            { id: 27, name: "Картриджи XROS 4 шт", price: 1200, category: "accessory", desc: "Сменные картриджи для Vaporesso XROS.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJSwYXwdDGcu6BlkelqRZ7ljhNmI1VeWEqmw&s" }
+        ];
+
+        let cart = {};
+        let currentCategory = "all";
+
+        function loadCartFromStorage() {
+            const saved = localStorage.getItem("redkartel_cart_v2");
+            if (saved) {
+                try {
+                    cart = JSON.parse(saved);
+                } catch(e) { cart = {}; }
+            } else {
+                cart = {};
+            }
+            updateCartUI();
+        }
+
+        function saveCart() {
+            localStorage.setItem("redkartel_cart_v2", JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            if (cart[productId]) {
+                cart[productId].quantity += 1;
+            } else {
+                cart[productId] = { ...product, quantity: 1 };
+            }
+            saveCart();
+            showNotification(`✓ ${product.name} добавлен`);
+        }
+
+        function removeFromCart(productId) {
+            if (cart[productId]) {
+                cart[productId].quantity -= 1;
+                if (cart[productId].quantity <= 0) {
+                    delete cart[productId];
+                }
+                saveCart();
+            }
+        }
+
+        function deleteItemCompletely(productId) {
+            delete cart[productId];
+            saveCart();
+        }
+
+        function getCartTotal() {
+            let total = 0;
+            for (let id in cart) {
+                total += cart[id].price * cart[id].quantity;
+            }
+            return total;
+        }
+
+        function getCartItemsList() {
+            const items = [];
+            for (let id in cart) {
+                const item = cart[id];
+                items.push(`${item.name} (${item.quantity} шт.)`);
+            }
+            return items.join(", ");
+        }
+
+        function generateOrderText() {
+            const itemList = getCartItemsList();
+            if (itemList) {
+                return `Здравствуйте! Хочу заказать в RedKartel Vape: ${itemList}. Сумма: ${getCartTotal()}₽.`;
+            } else {
+                return `Здравствуйте! Интересуюсь товарами из RedKartel Vape.`;
+            }
+        }
+
+        function updateCartUI() {
+            const count = Object.values(cart).reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').innerText = count;
+            const cartContainer = document.getElementById('cartItemsContainer');
+            const totalSpan = document.getElementById('cartTotal');
+            if (!cartContainer) return;
+
+            if (Object.keys(cart).length === 0) {
+                cartContainer.innerHTML = '<div class="empty-cart">Корзина пуста</div>';
+                if (totalSpan) totalSpan.innerText = `Итого: 0 ₽`;
+                return;
+            }
+
+            let itemsHtml = '';
+            for (let id in cart) {
+                const item = cart[id];
+                itemsHtml += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${escapeHtml(item.name)}</div>
+                            <div class="cart-item-price">${item.price} ₽ × ${item.quantity}</div>
+                        </div>
+                        <div class="cart-item-controls">
+                            <button class="cart-qty-minus" data-id="${item.id}">−</button>
+                            <span style="font-weight:600;">${item.quantity}</span>
+                            <button class="cart-qty-plus" data-id="${item.id}">+</button>
+                            <button class="cart-item-delete" data-id="${item.id}" style="background:#2c1515; color:#ff8888;">✕</button>
+                        </div>
+                    </div>
+                `;
+            }
+            cartContainer.innerHTML = itemsHtml;
+            if (totalSpan) totalSpan.innerText = `Итого: ${getCartTotal()} ₽`;
+
+            document.querySelectorAll('.cart-qty-minus').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const pid = parseInt(btn.dataset.id);
+                    removeFromCart(pid);
+                });
+            });
+            document.querySelectorAll('.cart-qty-plus').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const pid = parseInt(btn.dataset.id);
+                    addToCart(pid);
+                });
+            });
+            document.querySelectorAll('.cart-item-delete').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const pid = parseInt(btn.dataset.id);
+                    deleteItemCompletely(pid);
+                });
+            });
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        function showNotification(msg) {
+            const notif = document.getElementById('notification');
+            notif.innerText = msg;
+            notif.style.opacity = '1';
+            setTimeout(() => {
+                notif.style.opacity = '0';
+            }, 1700);
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = products.map(product => {
+                const imgStyle = product.img && product.img.trim() !== '' 
+                    ? `background-image: url('${product.img}'); background-size: cover; background-position: center;` 
+                    : `background-color: #1e1e1e; display: flex; align-items: center; justify-content: center; content: "🍥";`;
+                return `
+                    <div class="product-card" data-id="${product.id}">
+                        <div class="card-img" style="${imgStyle}"></div>
+                        <div class="product-info">
+                            <div class="product-title">${escapeHtml(product.name)}</div>
+                            <div class="product-desc">${escapeHtml(product.desc)} Большой выбор вкусов — уточняйте у продавца.</div>
+                            <div class="price-row">
+                                <div class="price">${product.price} <small>₽</small></div>
+                                <button class="add-to-cart" data-id="${product.id}"><i class="fas fa-cart-plus"></i> В корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const id = parseInt(btn.dataset.id);
+                    addToCart(id);
+                });
+            });
+        }
+
+        function initEventListeners() {
+            const cartIcon = document.getElementById('cartIcon');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const closeCartBtn = document.getElementById('closeCartBtn');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            if (cartIcon) {
+                cartIcon.addEventListener('click', () => {
+                    cartSidebar.classList.add('open');
+                });
+            }
+            if (closeCartBtn) {
+                closeCartBtn.addEventListener('click', () => {
+                    cartSidebar.classList.remove('open');
+                });
+            }
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', () => {
+                    const text = generateOrderText();
+                    const encodedText = encodeURIComponent(text);
+                    const tgLink = `https://t.me/ED4M0500?text=${encodedText}`;
+                    window.open(tgLink, '_blank');
+                    showNotification('Переход в Telegram для оформления заказа');
+                });
+            }
+
+            document.addEventListener('click', (e) => {
+                if (cartSidebar && !cartSidebar.contains(e.target) && e.target !== cartIcon && !cartIcon.contains(e.target)) {
+                    if (cartSidebar.classList.contains('open')) {
+                        if (!e.target.closest('.cart-sidebar') && e.target !== cartIcon) {
+                            cartSidebar.classList.remove('open');
+                        }
+                    }
+                }
+            });
+        }
+
+        loadCartFromStorage();
+        renderProducts();
+        initEventListeners();
+    })();
+</script>
+</body>
+</html>
