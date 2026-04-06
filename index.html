@@ -566,20 +566,24 @@
             { id: 26, name: "Platinum Bar", price: 400, category: "disposable", desc: "Плавный и насыщенный вкус, стильный дизайн.", img: "https://i.ibb.co/gbwq3Lrr/image.png" },
             { id: 27, name: "Funky Lands", price: 1300, category: "disposable", desc: "Эксклюзивная линейка, уникальные вкусы.", img: "https://i.ibb.co/6c0MnZ2K/photo-2-2026-04-06-22-09-03.jpg" },
             { id: 28, name: "Inflave power 9k", price: 500, category: "disposable", desc: "До 9000 затяжек, компактный и стильный.", img: "https://i.ibb.co/B2jd4SDB/image.png" },
+            { id: 29, name: "Lost Mary", price: 700, category: "disposable", desc: "До 7000 затяжек, популярные вкусы.", img: "https://i.ibb.co/czX4dnW/image.png" },
+            { id: 30, name: "Puffmi", price: 1000, category: "disposable", desc: "Высокое качество, яркий вкус.", img: "https://i.ibb.co/M51YWt7c/image.png" },
+            { id: 31, name: "Vozol 12000", price: 1100, category: "disposable", desc: "До 12000 затяжек, широкий выбор.", img: "https://i.ibb.co/RpkK3YDV/image.png" },
+            { id: 32, name: "Vozol 20000", price: 1200, category: "disposable", desc: "До 20000 затяжек, максимальная автономность.", img: "https://i.ibb.co/Fkdf35Sd/image.png" },
             // Расходники (liquid) — жидкости + картриджи
-            { id: 29, name: "Жижа и точка", price: 300, category: "liquid", desc: "Качественная жидкость для электронных сигарет.", img: "https://i.ibb.co/zhhrgHhp/photo-3-2026-04-06-21-59-56.jpg" },
-            { id: 30, name: "Жижа пуля", price: 300, category: "liquid", desc: "Насыщенный вкус, отличная передача аромата.", img: "https://i.ibb.co/Pvp736L7/photo-1-2026-04-06-22-06-03.jpg" },
-            { id: 31, name: "Waka жижа", price: 450, category: "liquid", desc: "Премиум жидкость, яркий и сочный вкус.", img: "https://i.ibb.co/5xwXr0sW/photo-2-2026-04-06-22-06-03.jpg" },
-            { id: 32, name: "Sub zero", price: 450, category: "liquid", desc: "Освежающая линейка с эффектом льда.", img: "https://i.ibb.co/svB5TSzB/photo-3-2026-04-06-22-06-03.jpg" },
-            { id: 33, name: "Black Jack", price: 500, category: "liquid", desc: "Классические табачные и десертные ноты.", img: "https://i.ibb.co/nqzxqpwM/photo-1-2026-04-06-22-09-03.jpg" },
-            { id: 34, name: "Картриджи XROS 4 шт", price: 1200, category: "liquid", desc: "Сменные картриджи для Vaporesso XROS.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJSwYXwdDGcu6BlkelqRZ7ljhNmI1VeWEqmw&s" }
+            { id: 33, name: "Жижа и точка", price: 300, category: "liquid", desc: "Качественная жидкость для электронных сигарет.", img: "https://i.ibb.co/zhhrgHhp/photo-3-2026-04-06-21-59-56.jpg" },
+            { id: 34, name: "Жижа пуля", price: 300, category: "liquid", desc: "Насыщенный вкус, отличная передача аромата.", img: "https://i.ibb.co/Pvp736L7/photo-1-2026-04-06-22-06-03.jpg" },
+            { id: 35, name: "Waka жижа", price: 450, category: "liquid", desc: "Премиум жидкость, яркий и сочный вкус.", img: "https://i.ibb.co/5xwXr0sW/photo-2-2026-04-06-22-06-03.jpg" },
+            { id: 36, name: "Sub zero", price: 450, category: "liquid", desc: "Освежающая линейка с эффектом льда.", img: "https://i.ibb.co/svB5TSzB/photo-3-2026-04-06-22-06-03.jpg" },
+            { id: 37, name: "Black Jack", price: 500, category: "liquid", desc: "Классические табачные и десертные ноты.", img: "https://i.ibb.co/nqzxqpwM/photo-1-2026-04-06-22-09-03.jpg" },
+            { id: 38, name: "Картриджи XROS 4 шт", price: 1200, category: "liquid", desc: "Сменные картриджи для Vaporesso XROS.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJSwYXwdDGcu6BlkelqRZ7ljhNmI1VeWEqmw&s" }
         ];
 
         let cart = {};
         let currentCategory = "all";
 
         function loadCartFromStorage() {
-            const saved = localStorage.getItem("redkartel_cart_v7");
+            const saved = localStorage.getItem("redkartel_cart_v8");
             if (saved) {
                 try {
                     cart = JSON.parse(saved);
@@ -591,7 +595,7 @@
         }
 
         function saveCart() {
-            localStorage.setItem("redkartel_cart_v7", JSON.stringify(cart));
+            localStorage.setItem("redkartel_cart_v8", JSON.stringify(cart));
             updateCartUI();
         }
 
