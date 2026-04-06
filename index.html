@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>RedKartel Vape | Одноразки и жидкости</title>
+    <title>RedKartel Vape | Одноразки и расходники</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
@@ -453,6 +453,23 @@
             text-decoration: underline;
         }
 
+        .developer-credit {
+            margin-top: 30px;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+
+        .developer-credit a {
+            color: #e63946;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .developer-credit a:hover {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
         @media (max-width: 680px) {
             .hero h1 { font-size: 36px; }
             .products-grid { gap: 20px; }
@@ -476,7 +493,7 @@
 <div class="hero">
     <div class="container">
         <h1>RedKartel Vape</h1>
-        <p>Одноразовые электронные сигареты и жидкости для парения. Только оригинал, моментальная отправка. Огромный выбор вкусов — уточняйте у продавца.</p>
+        <p>Одноразовые электронные сигареты, жидкости и расходники. Только оригинал, моментальная отправка. Огромный выбор вкусов — уточняйте у продавца.</p>
     </div>
 </div>
 
@@ -484,7 +501,7 @@
     <div class="categories-nav" id="categoriesNav">
         <button class="cat-btn active" data-cat="all">Все товары</button>
         <button class="cat-btn" data-cat="disposable">Одноразки</button>
-        <button class="cat-btn" data-cat="liquid">Жижи</button>
+        <button class="cat-btn" data-cat="liquid">Расходники</button>
     </div>
     <div class="products-grid" id="productsGrid"></div>
 </div>
@@ -497,6 +514,9 @@
             <a href="https://t.me/RedKartelVape" target="_blank"><i class="fab fa-telegram"></i> Telegram канал</a>
         </div>
         <p style="margin-top: 20px; font-size: 12px;">По вопросам наличия, ассортимента вкусов и новинок — пишите в Telegram. Работаем честно и быстро.</p>
+        <div class="developer-credit">
+            <a href="https://t.me/vcsax" target="_blank">Сайт сделан @vcsax</a>
+        </div>
     </div>
 </footer>
 
@@ -543,23 +563,23 @@
             { id: 23, name: "Geek Bar 911 18k", price: 1000, category: "disposable", desc: "До 18000 затяжек, огромный выбор вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnO7NeQ8qPF0_-V1s1GLRV-P1TE6vaZZ7L3A&s" },
             { id: 24, name: "MKG X ULTRA 30k", price: 1000, category: "disposable", desc: "До 30000 затяжек, множество вкусов.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9kK2kNwEyf_FtBeDdxGV7GB69-iBZrYTzzg&s" },
             { id: 25, name: "Manta AIO Plus", price: 1800, category: "disposable", desc: "Мощное POD-устройство, совместимо с различными жидкостями.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsra5t4S66xlaj3PCqFXuPay1RkkwFRpGOLQ&s" },
-            { id: 26, name: "Картриджи XROS 4 шт", price: 1200, category: "disposable", desc: "Сменные картриджи для Vaporesso XROS.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJSwYXwdDGcu6BlkelqRZ7ljhNmI1VeWEqmw&s" },
-            { id: 27, name: "Platinum Bar", price: 400, category: "disposable", desc: "Плавный и насыщенный вкус, стильный дизайн.", img: "https://i.ibb.co/dwLgWfc3/photo-3-2026-04-06-22-09-03.jpg" },
-            { id: 28, name: "Funky Lands", price: 1300, category: "disposable", desc: "Эксклюзивная линейка, уникальные вкусы.", img: "https://i.ibb.co/6c0MnZ2K/photo-2-2026-04-06-22-09-03.jpg" },
-            { id: 29, name: "Inflave power 9k", price: 500, category: "disposable", desc: "До 9000 затяжек, компактный и стильный.", img: "https://i.ibb.co/B2jd4SDB/image.png" },
-            // Жидкости (liquid)
-            { id: 30, name: "Жижа и точка", price: 300, category: "liquid", desc: "Качественная жидкость для электронных сигарет.", img: "https://i.ibb.co/zhhrgHhp/photo-3-2026-04-06-21-59-56.jpg" },
-            { id: 31, name: "Жижа пуля", price: 300, category: "liquid", desc: "Насыщенный вкус, отличная передача аромата.", img: "https://i.ibb.co/Pvp736L7/photo-1-2026-04-06-22-06-03.jpg" },
-            { id: 32, name: "Waka жижа", price: 450, category: "liquid", desc: "Премиум жидкость, яркий и сочный вкус.", img: "https://i.ibb.co/5xwXr0sW/photo-2-2026-04-06-22-06-03.jpg" },
-            { id: 33, name: "Sub zero", price: 450, category: "liquid", desc: "Освежающая линейка с эффектом льда.", img: "https://i.ibb.co/svB5TSzB/photo-3-2026-04-06-22-06-03.jpg" },
-            { id: 34, name: "Black Jack", price: 500, category: "liquid", desc: "Классические табачные и десертные ноты.", img: "https://i.ibb.co/nqzxqpwM/photo-1-2026-04-06-22-09-03.jpg" }
+            { id: 26, name: "Platinum Bar", price: 400, category: "disposable", desc: "Плавный и насыщенный вкус, стильный дизайн.", img: "https://i.ibb.co/gbwq3Lrr/image.png" },
+            { id: 27, name: "Funky Lands", price: 1300, category: "disposable", desc: "Эксклюзивная линейка, уникальные вкусы.", img: "https://i.ibb.co/6c0MnZ2K/photo-2-2026-04-06-22-09-03.jpg" },
+            { id: 28, name: "Inflave power 9k", price: 500, category: "disposable", desc: "До 9000 затяжек, компактный и стильный.", img: "https://i.ibb.co/B2jd4SDB/image.png" },
+            // Расходники (liquid) — жидкости + картриджи
+            { id: 29, name: "Жижа и точка", price: 300, category: "liquid", desc: "Качественная жидкость для электронных сигарет.", img: "https://i.ibb.co/zhhrgHhp/photo-3-2026-04-06-21-59-56.jpg" },
+            { id: 30, name: "Жижа пуля", price: 300, category: "liquid", desc: "Насыщенный вкус, отличная передача аромата.", img: "https://i.ibb.co/Pvp736L7/photo-1-2026-04-06-22-06-03.jpg" },
+            { id: 31, name: "Waka жижа", price: 450, category: "liquid", desc: "Премиум жидкость, яркий и сочный вкус.", img: "https://i.ibb.co/5xwXr0sW/photo-2-2026-04-06-22-06-03.jpg" },
+            { id: 32, name: "Sub zero", price: 450, category: "liquid", desc: "Освежающая линейка с эффектом льда.", img: "https://i.ibb.co/svB5TSzB/photo-3-2026-04-06-22-06-03.jpg" },
+            { id: 33, name: "Black Jack", price: 500, category: "liquid", desc: "Классические табачные и десертные ноты.", img: "https://i.ibb.co/nqzxqpwM/photo-1-2026-04-06-22-09-03.jpg" },
+            { id: 34, name: "Картриджи XROS 4 шт", price: 1200, category: "liquid", desc: "Сменные картриджи для Vaporesso XROS.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJSwYXwdDGcu6BlkelqRZ7ljhNmI1VeWEqmw&s" }
         ];
 
         let cart = {};
         let currentCategory = "all";
 
         function loadCartFromStorage() {
-            const saved = localStorage.getItem("redkartel_cart_v5");
+            const saved = localStorage.getItem("redkartel_cart_v7");
             if (saved) {
                 try {
                     cart = JSON.parse(saved);
@@ -571,7 +591,7 @@
         }
 
         function saveCart() {
-            localStorage.setItem("redkartel_cart_v5", JSON.stringify(cart));
+            localStorage.setItem("redkartel_cart_v7", JSON.stringify(cart));
             updateCartUI();
         }
 
